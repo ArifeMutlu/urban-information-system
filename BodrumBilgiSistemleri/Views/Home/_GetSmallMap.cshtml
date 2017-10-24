@@ -1,0 +1,27 @@
+﻿<script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
+<style>
+   #mapSmall .leaflet-tile leaflet-tile-loaded{
+        width: 240px !important;
+        height: 180px !important;
+    }
+</style>
+
+<div id="mapSmall"></div>
+
+<script>
+    L.mapbox.accessToken = 'pk.eyJ1IjoiYXJpZmVtdXRsdSIsImEiOiJTX19GckdJIn0.wwrmMTgwDVxmga_8MIG4oA';
+
+    // The native maximum zoom level for this tile layer is 19
+    var map = L.mapbox.map('mapSmall', 'mapbox.streets', {
+        tileLayer: {
+            maxNativeZoom: 10 // The map will use zoom level 19 tiles for all zoom levels past 19
+        }
+    }).setView([37.0341, 27.4207], 10);
+    var layer = {
+        " Streets": L.mapbox.tileLayer('mapbox.streets'),
+        " Outdoors": L.mapbox.tileLayer('mapbox.outdoors'),
+        " Satellite": L.mapbox.tileLayer('mapbox.satellite')
+    };
+    L.control.layers(layer);
+</script>

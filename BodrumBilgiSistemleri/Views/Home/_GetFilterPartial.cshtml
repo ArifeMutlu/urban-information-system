@@ -1,0 +1,112 @@
+﻿<div>
+    <button type="button" id="food" class="btn  waves-effect waves-light m-b-5" onclick="GetMapPartial(1);">Yeme İçme</button>
+    <button type="button" class="btn  waves-effect waves-light m-b-5" onclick="GetMapPartial(2);">Turistik</button>
+    <button type="button" class="btn waves-effect waves-light m-b-5" onclick="GetMapPartial(3);">Aliş Veriş</button>
+    <button type="button" class="btn  waves-effect waves-light m-b-5" onclick="GetMapPartial(4);">Spor</button>
+    <button type="button" class="btn  waves-effect waves-light m-b-5" onclick="GetMapPartial(5);">Konaklama</button>
+    <button type="button" class="btn  waves-effect waves-light m-b-5" onclick="GetMapPartial(6);">Sağlık</button>
+    <button type="button" class="btn  waves-effect waves-light m-b-5" onclick="GetMapPartial(7);">Banka</button>
+
+    <div class="pull-right">
+        <div id="search">
+            <input type="text" name="addr" value="" id="addr" size="10" />
+            <button type="button" onclick="addr_search();">Search</button>
+            <div id="results"> </div>
+        </div>
+    </div>
+    <div class="col-lg-offset-2 dvtype" style="display: none">
+    </div>
+</div>
+<input type="hidden" id="catId"/>
+<script>
+    function GetMapPartial(obj) {
+        $("#catId").val(obj);
+        if (obj === 1) {
+            ajaxMethods.load($(".mapDv"), "/Home/GetMap", { data: obj }, function (response) {
+                ajaxMethods.post("/Home/GetFilterType", { catId: obj }, function (response) {
+                    $(".dvtype").css("display", "inherit");
+                    $(".aa").remove();
+                    $.each(response, function (key, value) {
+                        $(".dvtype").append("<button type='button' class='btn-danger waves-effect waves-light m-b-5 paddingfilterbtn aa m-r-5' onclick='GetType(" + value.Id + ");'>" + value.Name + "</button>");
+                    });
+                });
+            });
+        }
+        else if (obj === 2) {
+            ajaxMethods.load($(".mapDv"), "/Home/GetMap", { data: obj }, function (response) {
+                ajaxMethods.post("/Home/GetFilterType", { catId: obj }, function (response) {
+                    $(".dvtype").css("display", "inherit");
+                    $(".aa").remove();
+                    $.each(response, function (key, value) {
+                        $(".dvtype").append("<button type='button' class='btn-warning waves-effect waves-light m-b-5 paddingfilterbtn aa m-r-5' onclick='GetType(" + value.Id + ");'>" + value.Name + "</button>");
+                    });
+                });
+            });
+        }
+        else if (obj === 3) {
+            ajaxMethods.load($(".mapDv"), "/Home/GetMap", { data: obj }, function (response) {
+                ajaxMethods.post("/Home/GetFilterType", { catId: obj }, function (response) {
+                    $(".dvtype").css("display", "inherit");
+                    $(".aa").remove();
+                    $.each(response, function (key, value) {
+                        $(".dvtype").append("<button type='button' class='btn-orange waves-effect waves-light m-b-5 paddingfilterbtn aa m-r-5' onclick='GetType(" + value.Id + ");'>" + value.Name + "</button>");
+                    });
+                });
+            });
+        }
+        else if (obj === 4) {
+            ajaxMethods.load($(".mapDv"), "/Home/GetMap", { data: obj }, function (response) {
+                ajaxMethods.post("/Home/GetFilterType", { catId: obj }, function (response) {
+                    $(".dvtype").css("display", "inherit");
+                    $(".aa").remove();
+                    $.each(response, function (key, value) {
+                        $(".dvtype").append("<button type='button' class='btn-sports waves-effect waves-light m-b-5 paddingfilterbtn aa m-r-5' onclick='GetType(" + value.Id + ");'>" + value.Name + "</button>");
+                    });
+                });
+            });
+        }
+        else if (obj === 5) {
+            ajaxMethods.load($(".mapDv"), "/Home/GetMap", { data: obj }, function (response) {
+                ajaxMethods.post("/Home/GetFilterType", { catId: obj }, function (response) {
+                    $(".dvtype").css("display", "inherit");
+                    $(".aa").remove();
+                    $.each(response, function (key, value) {
+                        $(".dvtype").append("<button type='button' class='btn-success waves-effect waves-light m-b-5 paddingfilterbtn aa m-r-5' onclick='GetType(" + value.Id + ");'>" + value.Name + "</button>");
+                    });
+                });
+            });
+        }
+        else if (obj === 6) {
+            ajaxMethods.load($(".mapDv"), "/Home/GetMap", { data: obj }, function (response) {
+                ajaxMethods.post("/Home/GetFilterType", { catId: obj }, function (response) {
+                    $(".dvtype").css("display", "inherit");
+                    $(".aa").remove();
+                    $.each(response, function (key, value) {
+                        $(".dvtype").append("<button type='button' class='btn-primary waves-effect waves-light m-b-5 paddingfilterbtn aa m-r-5' onclick='GetType(" + value.Id + ");'>" + value.Name + "</button>");
+                    });
+                });
+            });
+        }
+        else if (obj === 7) {
+            ajaxMethods.load($(".mapDv"), "/Home/GetMap", { data: obj }, function (response) {
+                ajaxMethods.post("/Home/GetFilterType", { catId: obj }, function (response) {
+                    $(".dvtype").css("display", "inherit");
+                    $(".aa").remove();
+                    $.each(response, function (key, value) {
+                        $(".dvtype").append("<button type='button' class='btn-success waves-effect waves-light m-b-5 paddingfilterbtn aa m-r-5' onclick='GetType(" + value.Id + ");'>" + value.Name + "</button>");
+                    });
+                });
+            });
+        }
+    }
+
+    function GetType(obj) {
+        var catıd = $("#catId").val();
+        console.log(catıd);
+        ajaxMethods.load($(".mapDv"),"/Home/GetMap",
+            { data: catıd, typeId: obj },
+            function() {
+            });
+    }
+</script>
+<script src="~/Scripts/Plugin.js"></script>

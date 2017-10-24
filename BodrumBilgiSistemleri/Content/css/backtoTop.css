@@ -1,0 +1,38 @@
+﻿.cd-top {
+    display: inline-block;
+    height: 32px;
+    width: 40px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 10;
+    border-radius: 2px;
+    /* image replacement properties */
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    background: rgba(191, 96, 214, 0.8) url(../images/icons/arrows.png) no-repeat center 50%;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity .3s 0s, visibility 0s .3s;
+    -moz-transition: opacity .3s 0s, visibility 0s .3s;
+    transition: opacity .3s 0s, visibility 0s .3s;
+}
+    .cd-top.cd-is-visible, .cd-top.cd-fade-out, .no-touch .cd-top:hover {
+      -webkit-transition: opacity .3s 0s, visibility 0s 0s;
+      -moz-transition: opacity .3s 0s, visibility 0s 0s;
+      transition: opacity .3s 0s, visibility 0s 0s;
+    }
+    .cd-top.cd-is-visible {
+      /* the button becomes visible */
+      visibility: visible;
+      opacity: 1;
+    }
+    .cd-top.cd-fade-out {
+      /* if the user keeps scrolling down, the button is out of focus and becomes less visible */
+      opacity: .5;
+    }
+    .cd-top:hover {
+      background-color: rgb(191, 96, 214);
+      opacity: 1;
+    }

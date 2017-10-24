@@ -1,0 +1,37 @@
+﻿@model List<Core.Dto.ParameterDto>
+<script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
+
+<style>
+    .paddingfilterbtn{
+        padding: 2px 8px !important;
+    }
+    .smallmap{
+       position: fixed;
+       right: 30px;
+       bottom: 0;
+       width: 25%;
+       height: 25%;
+       border: black;
+    }
+    .leaflet-top leaflet-left{
+        position: absolute !important;
+        right: 100px !important;
+    }
+</style>
+<body>
+    <div class="mapDv">
+
+    </div>
+@*<div class="panel smallmap">
+  
+</div>*@
+    <script>
+        $(function () {
+          //  map.GetSmallMap();
+            map.GetSidebarPartial();
+            map.GetMapPartial();
+            map.GetFilter();
+        });
+    </script>
+</body>

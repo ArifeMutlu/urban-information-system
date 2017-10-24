@@ -1,0 +1,177 @@
+﻿
+@{
+    ViewBag.Title = "Index2";
+    Layout = null;
+}
+
+<link href="~/Content/owlcarousel/owl.carousel.min.css" rel="stylesheet" />
+<link href="~/Content/owlcarousel/owl.theme.default.min.css" rel="stylesheet" />
+<link href="~/Content/Icons/tas-icons/tas-icon.css" rel="stylesheet" />
+
+
+<div id="slideshow" class="fullscreen">
+    <div id="img-1" data-img-id="1" class="img-wrapper  Sliderbackground">
+        <div class="col-md-12">
+            <div class="col-md-6" id="resimId">
+            </div>
+            <div class="col-md-6 mt-250">
+                <h1 class="SliderHeader">
+                    Bize katılın
+                </h1>
+                <h2 class="SliderHeader2">
+                    Bilge Adam'da size uygun bir iş olabilir
+                </h2>
+                <p class="SliderContent">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed augue urna, facilisis sed efficitur in, varius eget purus. Cras molestie finibus orci.
+                </p>
+                <div class="get-started mt-40">
+                    <a href="#" class="btn btn-lg btn-primary Sliderbtn1" onclick="JobAdvert.GetAllJobAdvert()">DetayliBilgi</a>
+                    <a href="#" class="btn btn-lg btn-primary Sliderbtn2">İş Başvurusu Yap</a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div id="img-2" data-img-id="2" class="img-wrapper active" style="background-image: url('~/Content/Images/Slider/01.jpg');">
+        @*<div class="col-md-6" id="resimId" style="background-image:url('~/Content/Images/Slider/01.jpg')"></div>*@
+        <div class="col-md-6 mt-250">
+            <h1 class="SliderHeader">
+                Tebrikler
+            </h1>
+            <h2 class="SliderHeader2">
+                Bilge Adam'da size uygun bir iş olabilir
+            </h2>
+            <p class="SliderContent">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed augue urna, facilisis sed efficitur in, varius eget purus. Cras molestie finibus orci.
+            </p>
+            <div class="get-started mt-40">
+                <a href="#" class="btn btn-lg btn-primary Sliderbtn1">DetayliBilgi</a>
+                <a href="#" class="btn btn-lg btn-primary Sliderbtn2">İş Başvurusu Yap</a>
+            </div>
+        </div>
+    </div>
+    <div id="img-3" data-img-id="3" class="img-wrapper" style="background-image: url('../../Content/Images/Slider/02.jpg');">
+        @*<div class="col-md-6" id="resimId" style="background-image:url('../../Content/Images/Slider/02.jpg')">
+
+        </div>*@
+        <div class="col-md-6 mt-250">
+            <h1 class="SliderHeader">
+                Tebrikler
+            </h1>
+            <h2 class="SliderHeader2">
+                Bilge Adam'da size uygun bir iş olabilir
+            </h2>
+            <p class="SliderContent">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed augue urna, facilisis sed efficitur in, varius eget purus. Cras molestie finibus orci.
+            </p>
+            <div class="get-started mt-40">
+                <a href="#" class="btn btn-lg btn-primary Sliderbtn1">Detaylı Bilgi</a>
+                <a href="#" class="btn btn-lg btn-primary Sliderbtn2">İş Başvurusu Yap</a>
+            </div>
+        </div>
+    </div>
+    <div id="img-4" data-img-id="4" class="img-wrapper" style="background-image: url('/Template/img/slides/slider_fon_2.jpg');">
+        <div class="col-md-6" id="resimId" style="background-image:url('/Template/img/slides/slider-2.png')"></div>
+        <div class="col-md-6 mt-250">
+            <h1 class="SliderHeader">
+                Tebrikler
+            </h1>
+            <h2 class="SliderHeader2">
+                Bilge Adam'da size uygun bir iş olabilir
+            </h2>
+            <p class="SliderContent">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed augue urna, facilisis sed efficitur in, varius eget purus. Cras molestie finibus orci.
+            </p>
+            <div class="get-started mt-40">
+                <a href="#" class="btn btn-lg btn-primary Sliderbtn1">Detaylı Bilgi</a>
+                <a href="#" class="btn btn-lg btn-primary Sliderbtn2">İş Başvurusu Yap</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Below are the thumbnails of above images -->
+    <div class="thumbs-container bottom">
+        <div id="prev-btn" class="prev">
+            <i class="icon tas-arrow-left-big" style="font-size:3em;"></i>
+        </div>
+        <ul class="thumbs">
+            <li data-thumb-id="1" class="thumb " style="background-image: url('/Template/img/slides/slider_fon_1.jpg')">
+                <div class="trumb-bg"></div>
+                <div class="col-md-5">
+                    <img src="/Template/img/slides/slider_kalemli_kiz.png" class="trumpImage" />
+                </div>
+                <div class="col-md-5 trump">
+                    <span class="trumpHeader">
+                        Bize katılın
+                    </span>
+                    <span class="trumpHeader2">
+                        Güzel bir şey kazandınız..
+                    </span>
+                    <span class="trumpContent">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed augue urna, facilisis sed efficitur in, varius eget purus. Cras molestie finibus orci.
+                    </span>
+                </div>
+            </li>
+            <li data-thumb-id="2" class="thumb active" style="background-image: url('/Template/img/slides/slider_fon_2.jpg')">
+                <div class="trumb-bg"></div>
+                <div class="col-md-5">
+                    <img src="/Template/img/slides/slider-1.png" class="trumpImage" />
+                </div>
+                <div class="col-md-5 trump">
+                    <span class="trumpHeader">
+                        Tebrikler
+                    </span>
+                    <span class="trumpHeader2">
+                        Güzel bir şey kazandınız..
+                    </span>
+                    <span class="trumpContent">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed augue urna, facilisis sed efficitur in, varius eget purus. Cras molestie finibus orci.
+                    </span>
+                </div>
+
+            </li>
+            <li data-thumb-id="3" class="thumb" style="background-image: url('/Template/img/slides/slider_fon_2.jpg')">
+                <div class="trumb-bg"></div>
+                <div class="col-md-5">
+
+                    <img src="/Template/img/slides/slider-2.png" class="trumpImage" />
+                </div>
+                <div class="col-md-5 trump">
+                    <span class="trumpHeader">
+                        Tebrikler
+                    </span>
+                    <span class="trumpHeader2">
+                        Güzel bir şey kazandınız..
+                    </span>
+                    <span class="trumpContent">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed augue urna, facilisis sed efficitur in, varius eget purus. Cras molestie finibus orci.
+                    </span>
+                </div>
+
+            </li>
+            <li data-thumb-id="4" class="thumb" style="background-image: url('/Template/img/slides/slider_fon_2.jpg')">
+                <div class="trumb-bg"></div>
+                <div class="col-md-5">
+                    <img src="/Template/img/slides/slider-2.png" class="trumpImage" />
+                </div>
+                <div class="col-md-5 trump">
+                    <span class="trumpHeader">
+                        Bize katılın
+                    </span>
+                    <span class="trumpHeader2">
+                        Güzel bir şey kazandınız..
+                    </span>
+                    <span class="trumpContent">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed augue urna, facilisis sed efficitur in, varius eget purus. Cras molestie finibus orci.
+                    </span>
+                </div>
+            </li>
+        </ul>
+        <div id="next-btn" class="next" style="margin-right:15px;">
+            <i class="icon tas-arrow-right-big" style="font-size:3em;"></i>
+        </div>
+    </div>
+</div>
+
+<script src="~/Content/owlcarousel/owl.carousel.js"></script>

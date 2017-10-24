@@ -1,0 +1,298 @@
+﻿@charset "UTF-8";
+
+@font-face {
+  font-family: "tas-icons";
+  src:url("fonts/tas-icons.eot");
+  src:url("fonts/tas-icons.eot?#iefix") format("embedded-opentype"),
+    url("fonts/tas-icons.woff") format("woff"),
+    url("fonts/tas-icons.ttf") format("truetype"),
+    url("fonts/tas-icons.svg#tas-icons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "tas-icons" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="tas-"]:before,
+[class*=" tas-"]:before {
+  font-family: "tas-icons" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.tas-action:before {
+  content: "\61";
+}
+.tas-add-page:before {
+  content: "\62";
+}
+.tas-announcement:before {
+  content: "\63";
+}
+.tas-arrow-down:before {
+  content: "\64";
+}
+.tas-arrow-left:before {
+  content: "\65";
+}
+.tas-arrow-right:before {
+  content: "\66";
+}
+.tas-arrow-up:before {
+  content: "\67";
+}
+.tas-attach:before {
+  content: "\68";
+}
+.tas-back:before {
+  content: "\69";
+}
+.tas-bag:before {
+  content: "\6a";
+}
+.tas-bell:before {
+  content: "\6b";
+}
+.tas-bell2:before {
+  content: "\6c";
+}
+.tas-bell2_notify:before {
+    content: "\6c";
+}
+.tas-bookmark:before {
+  content: "\6d";
+}
+.tas-calculator:before {
+  content: "\6e";
+}
+.tas-calendar:before {
+  content: "\6f";
+}
+.tas-camera:before {
+  content: "\70";
+}
+.tas-chart-bar:before {
+  content: "\71";
+}
+.tas-chart-bar2:before {
+  content: "\72";
+}
+.tas-chart-pie:before {
+  content: "\73";
+}
+.tas-check:before {
+  content: "\74";
+}
+.tas-check2:before {
+  content: "\75";
+}
+.tas-check3:before {
+  content: "\76";
+}
+.tas-check-pin:before {
+  content: "\77";
+}
+.tas-circle-next:before {
+  content: "\78";
+}
+.tas-circle-play:before {
+  content: "\79";
+}
+.tas-clock:before {
+  content: "\7a";
+}
+.tas-cloud:before {
+  content: "\41";
+}
+.tas-cloud2:before {
+  content: "\42";
+}
+.tas-comment:before {
+  content: "\43";
+}
+.tas-comment2:before {
+  content: "\44";
+}
+.tas-comment-plus:before {
+  content: "\45";
+}
+.tas-comment-smile:before {
+  content: "\46";
+}
+.tas-download:before {
+  content: "\47";
+}
+.tas-equalizer:before {
+  content: "\48";
+}
+.tas-eye:before {
+  content: "\49";
+}
+.tas-filter:before {
+  content: "\4a";
+}
+.tas-flag:before {
+  content: "\4b";
+}
+.tas-folder:before {
+  content: "\4c";
+}
+.tas-hamburger:before {
+  content: "\4d";
+}
+.tas-hamburger2:before {
+  content: "\4e";
+}
+.tas-home:before {
+  content: "\4f";
+}
+.tas-lamp:before {
+  content: "\50";
+}
+.tas-letter:before {
+  content: "\51";
+}
+.tas-lock:before {
+  content: "\52";
+}
+.tas-lock2:before {
+  content: "\53";
+}
+.tas-lock-success:before {
+  content: "\54";
+}
+.tas-movie-play:before {
+  content: "\55";
+}
+.tas-negative:before {
+  content: "\56";
+}
+.tas-next:before {
+  content: "\57";
+}
+.tas-no-entry:before {
+  content: "\58";
+}
+.tas-pencil:before {
+  content: "\59";
+}
+.tas-phone:before {
+  content: "\5a";
+}
+.tas-pin:before {
+  content: "\30";
+}
+.tas-pin2:before {
+  content: "\31";
+}
+.tas-play:before {
+  content: "\32";
+}
+.tas-plus:before {
+  content: "\33";
+}
+.tas-plus2:before {
+  content: "\34";
+}
+.tas-question:before {
+  content: "\35";
+}
+.tas-refresh:before {
+  content: "\36";
+}
+.tas-refresh2:before {
+  content: "\37";
+}
+.tas-remove:before {
+  content: "\38";
+}
+.tas-remove2:before {
+  content: "\39";
+}
+.tas-remove3:before {
+  content: "\21";
+}
+.tas-search:before {
+  content: "\22";
+}
+.tas-search2:before {
+  content: "\23";
+}
+.tas-settings:before {
+  content: "\24";
+}
+.tas-star:before {
+  content: "\25";
+}
+.tas-star2:before {
+  content: "\26";
+}
+.tas-star3:before {
+  content: "\27";
+}
+.tas-status-blue:before {
+  content: "\28";
+}
+.tas-status-green:before {
+  content: "\29";
+}
+.tas-status-red:before {
+  content: "\2a";
+}
+.tas-status-white:before {
+  content: "\2b";
+}
+.tas-task:before {
+  content: "\2c";
+}
+.tas-task2:before {
+  content: "\2d";
+}
+.tas-time:before {
+  content: "\2e";
+}
+.tas-trash:before {
+  content: "\2f";
+}
+.tas-umbrella:before {
+  content: "\3a";
+}
+.tas-user:before {
+  content: "\3b";
+}
+.tas-user2:before {
+  content: "\3c";
+}
+.tas-user3:before {
+  content: "\3d";
+}
+.tas-users:before {
+  content: "\3e";
+}
+.tas-warning:before {
+  content: "\3f";
+}
+.tas-workplace:before {
+  content: "\40";
+}
+.tas-xarrow:before {
+  content: "\5b";
+}

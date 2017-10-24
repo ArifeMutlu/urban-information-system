@@ -1,0 +1,218 @@
+﻿@model List<Core.Dto.ParameterDto>
+@*<script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />*@
+
+<style>
+
+</style>
+<div id='map'></div>
+@*<div id="search">
+        <input type="text" name="addr" value="" id="addr" size="10" />
+        <button type="button" onclick="addr_search();">Search</button>
+        <div id="results"> </div>
+    </div>*@
+<script>
+
+    L.mapbox.accessToken = 'pk.eyJ1IjoiYXJpZmVtdXRsdSIsImEiOiJTX19GckdJIn0.wwrmMTgwDVxmga_8MIG4oA';
+
+    // The native maximum zoom level for this tile layer is 19
+    var map = L.mapbox.map('map', 'mapbox.streets', {
+        tileLayer: {
+            maxNativeZoom: 19 // The map will use zoom level 19 tiles for all zoom levels past 19
+        }
+    }).setView([37.0341, 27.4207], 15);
+    var layer = {
+        " Streets": L.mapbox.tileLayer('mapbox.streets'),
+        " Outdoors": L.mapbox.tileLayer('mapbox.outdoors'),
+        " Satellite": L.mapbox.tileLayer('mapbox.satellite')
+    };
+    L.control.layers(layer);
+    //Search
+    function addr_search() {
+        var inp = document.getElementById("addr");
+
+        $.getJSON('http://nominatim.openstreetmap.org/search?format=json&limit=5&q=' + inp.value, function (data) {
+            var items = [];
+
+            $.each(data, function (key, val) {
+                items.push(
+                    "<li><a href='#' onclick='chooseAddr(" +
+                    val.lat + ", " + val.lon + ");return false;'>" + val.display_name +
+                    '</a></li>'
+                );
+            });
+            $('#results').empty();
+            if (items.length != 0) {
+                $('<p>', { html: "Search results:" }).appendTo('#results');
+                $('<ul/>', {
+                    'class': 'my-new-list',
+                    html: items.join('')
+                }).appendTo('#results');
+            } else {
+                $('<p>', { html: "No results found" }).appendTo('#results');
+            }
+        });
+    }
+    function chooseAddr(lat, lng, type) {
+        var location = new L.LatLng(lat, lng);
+        //map.panTo(location);
+
+        if (type == 'city' || type == 'administrative') {
+
+            map.setView([lat, lng], 17);
+            map.setZoom(17);
+        } else {
+            map.setView([lat, lng], 17);
+            //map.setZoom(17);
+        }
+    }
+
+    // Credit Foursquare for their wonderful data
+    map.attributionControl
+        .addAttribution('<a href="https://foursquare.com/">Places data from Foursquare</a>');
+
+    // Create a Foursquare developer account: https://developer.foursquare.com/
+    // NOTE: CHANGE THESE VALUES TO YOUR OWN:
+    // Otherwise they can be cycled or deactivated with zero notice.
+    var CLIENT_ID = 'L4UK14EMS0MCEZOVVUYX2UO5ULFHJN3EHOFVQFSW0Z1MSFSR';
+    var CLIENT_SECRET = 'YKJB0JRFDPPSGTHALFOEP5O1NDDATHKQ2IZ5RO2GOX452SFA';
+
+    // https://developer.foursquare.com/start/search
+    var API_ENDPOINT = 'https://api.foursquare.com/v2/venues/search' +
+        '?client_id=CLIENT_ID' +
+        '&client_secret=CLIENT_SECRET' +
+        '&v=20130816' +
+        '&ll=LATLON' +
+        '&query=Sağlık Ocağı' +
+        '&radius=100000' +
+        '&callback=?';
+    // Keep our place markers organized in a nice group.
+    var foursquarePlaces = L.layerGroup().addTo(map);
+
+    // Use jQuery to make an AJAX request to Foursquare to load markers data.
+    $.getJSON(API_ENDPOINT
+        .replace('CLIENT_ID', CLIENT_ID)
+        .replace('CLIENT_SECRET', CLIENT_SECRET)
+        .replace('LATLON',
+            map.getCenter().lat +
+            ',' +
+            map.getCenter().lng),
+        function (result, status) {
+            var data = result;
+            // console.log(data);
+            if (status !== 'success') return alert('Request to Foursquare failed');
+
+            //****************VERİ ÇEKME POST İŞLEMİ
+
+            //ajaxMethods.post("/Home/SetCafeVenue",{ venue:data },function(parameters) {});
+            // ajaxMethods.post("/Home/SetClubVenue", { venue: data }, function (parameters) { });
+            // ajaxMethods.post("/Home/SetFastFoodVenue", { venue: data }, function (parameters) { });
+            // ajaxMethods.post("/Home/SetCuisineVenue", { venue: data }, function (parameters) { });
+            //ajaxMethods.post("/Home/SetBreakfastVenue", { venue: data }, function (parameters) { });
+            //  ajaxMethods.post("/Home/SetBarVenue", { venue: data }, function(parameters) {});
+
+            //ajaxMethods.post("/Home/SetHotelVenue", { venue: data }, function (parameters) { });
+            //   ajaxMethods.post("/Home/SetHostelVenue", { venue: data }, function (parameters) { });
+            // ajaxMethods.post("/Home/SetHolidayVillage", { venue: data }, function (parameters) { });
+            // ajaxMethods.post("/Home/SetCamping", { venue: data }, function (parameters) { });
+
+            //  ajaxMethods.post("/Home/SetMarket", { venue: data }, function (parameters) { });
+            //  ajaxMethods.post("/Home/SetShoopingCentre", { venue: data }, function (parameters) { });
+
+            // ajaxMethods.post("/Home/SetPrivateHospital", { venue: data }, function (parameters) { });
+            // ajaxMethods.post("/Home/SetPharmacy", { venue: data }, function (parameters) { });
+            //ajaxMethods.post("/Home/CommunityClinic ", { venue: data }, function (parameters) { });
+
+            // ajaxMethods.post("/Home/SetBanka", { venue: data }, function (parameters) { });
+            //  ajaxMethods.post("/Home/SetAtm", { venue: data }, function (parameters) { });
+
+            //ajaxMethods.post("/Home/SetPtt", { venue: data }, function (parameters) { });
+            // ajaxMethods.post("/Home/SetKargo", { venue: data }, function (parameters) { });
+
+            //ajaxMethods.post("/Home/SetInformation", { venue: data }, function (parameters) { });
+            //ajaxMethods.post("/Home/SetSeeingPlace", { venue: data }, function (parameters) { });
+            //ajaxMethods.post("/Home/SetFestivalPlaces", { venue: data }, function (parameters) { });
+            //ajaxMethods.post("/Home/SetMuseum", { venue: data }, function (parameters) { });
+            // ajaxMethods.post("/Home/SetGift", { venue: data }, function (parameters) { });
+            // ajaxMethods.post("/Home/SetPlaj", { venue: data }, function (parameters) { });
+            //ajaxMethods.post("/Home/SetHistorical", { venue: data }, function (parameters) { });
+            //   ajaxMethods.post("/Home/SetSports", { venue: data }, function (parameters) { });
+
+
+            // Transform each venue result into a marker on the map.
+            //for (var i = 0; i < result.response.venues.length; i++) {
+            //    var venue = result.response.venues[i];
+            //    var latlng = L.latLng(venue.location.lat, venue.location.lng);
+            //    var marker = L.marker(latlng,
+            //        {
+            //            icon: L.mapbox.marker.icon({
+            //                'marker-color': '#b2c3e4',
+            //                'marker-symbol': 'cafe'
+            //            })
+            //        })
+            //        .bindPopup('<a href="https://foursquare.com/v/' +
+            //            venue.id +
+            //            '">' +
+            //            venue.name +
+            //            '</a>')
+            //        .addTo(foursquarePlaces);
+            //}
+
+
+
+            @*@foreach(var data in Model)
+            {*@
+            @*<text>console.log('@data.Name');</text>*@
+            @*@: var latlng = L.latLng(@data.Lat, @data.Lng);
+                @:var marker = L.marker(latlng,
+                        @:   {
+                        @: icon: L.mapbox.marker.icon({
+                        @: 'marker-color': '#b2c3e4',
+                        @:     'marker-symbol': 'cafe'
+                @:})
+            @: })*@
+            @*@:.bindPopup('<a href="https://foursquare.com/v/' +
+        @:   @data.Id +'">' + @data.Name +  '</a>')*@
+            @*@: .addTo(foursquarePlaces);*@
+            //}
+
+            var model = @Html.Raw(Json.Encode(Model));
+
+            for (var i = 0; i < @Model.Count; i++) {
+                var aaa = model[i];
+                //   console.log(aaa);
+                var latlng = L.latLng(aaa.Lat, aaa.Lng);
+                var marker = L.marker(latlng,
+                    {
+                        icon: L.mapbox.marker.icon({
+                            'marker-color': aaa.Color,
+                            'marker-symbol': aaa.Icon
+                        })
+                    })
+                    .bindPopup('<a href="https://foursquare.com/v/' + aaa.Id + '">' + aaa.Name + '</a>')
+                    .addTo(foursquarePlaces)
+                    .on('click', onclick);
+                // a();
+            }
+        });
+
+    function onclick(e) {
+        
+        var data = e.latlng;
+        var lat = data.lat;
+        var lng = data.lng;
+        var model = @Html.Raw(Json.Encode(Model));
+        debugger;
+        for (var i = 0; i < @Model.Count; i++) {
+            var aaa = model[i];
+            if(aaa.Lat===lat) {
+               // click(aaa);
+                console.log(aaa);
+            }
+            else{}
+        }
+    }
+    function click(obj) {
+        alert(obj);
+    }
+</script>
